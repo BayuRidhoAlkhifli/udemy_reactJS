@@ -1,24 +1,37 @@
-import logo from './assets/images/logo.svg';
 import './assets/styles/App.css';
+import ExpenseItem from './components/ExpenseItem';
 
-function App() {
+const now = new Date().toDateString();
+const number = 100;
+
+const expenseData = [
+  {
+    id: Math.floor(Math.random() * number),
+    date: now,
+    title: "Car Insurance",
+    amount: Math.round(Math.random() * number) / number,
+  },
+  {
+    id: Math.floor(Math.random() * number),
+    date: now,
+    title: "Car Insurance",
+    amount: Math.round(Math.random() * number) / number,
+  }
+];
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {
+        expenseData
+        .map((value, index) => (
+          <ExpenseItem 
+            key={`${expenseData[index].id}_expense`}
+            data={expenseData[index]}
+          />
+        ))
+      }
+    </>
   );
 }
 
