@@ -1,37 +1,40 @@
 import './assets/styles/App.css';
-import ExpenseItem from './components/ExpenseItem';
+import React from "react";
+import Expense from './components/Expense';
+import { getDate } from './utils/helper';
 
-const now = new Date().toDateString();
 const number = 100;
 
 const expenseData = [
   {
     id: Math.floor(Math.random() * number),
-    date: now,
-    title: "Car Insurance",
+    date: getDate("2022-01-12"),
+    title: `Item ${Math.floor(Math.random() * number)}`,
     amount: Math.round(Math.random() * number) / number,
   },
   {
     id: Math.floor(Math.random() * number),
-    date: now,
-    title: "Car Insurance",
+    date: getDate("2022-01-25"),
+    title: `Item ${Math.floor(Math.random() * number)}`,
+    amount: Math.round(Math.random() * number) / number,
+  },
+  {
+    id: Math.floor(Math.random() * number),
+    date: getDate("2022-02-09"),
+    title: `Item ${Math.floor(Math.random() * number)}`,
+    amount: Math.round(Math.random() * number) / number,
+  },
+  {
+    id: Math.floor(Math.random() * number),
+    date: getDate("2022-03-16"),
+    title: `Item ${Math.floor(Math.random() * number)}`,
     amount: Math.round(Math.random() * number) / number,
   }
 ];
 
 const App = () => {
   return (
-    <>
-      {
-        expenseData
-        .map((value, index) => (
-          <ExpenseItem 
-            key={`${expenseData[index].id}_expense`}
-            data={expenseData[index]}
-          />
-        ))
-      }
-    </>
+    <Expense data={expenseData} />
   );
 }
 

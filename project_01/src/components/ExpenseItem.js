@@ -1,11 +1,11 @@
-import "../assets/styles/ExpenseItem.css";
+import "../assets/styles/ExpenseItem.scss";
+import React from "react";
+import ExpenseDate from "./ExpenseDate";
 
-const ExpenseItem = ({ ...props }) => {
-  const { data } = props;
-
+const ExpenseItem = ({ data }) => {
   return (
     <div className="expense-item">
-      <h1>{data.date}</h1>
+      <ExpenseDate date={data.date} />
       <div className="expense-item__description">
         <h2>{data.title}</h2>
         <span className="expense-item__price">${data.amount}</span>
