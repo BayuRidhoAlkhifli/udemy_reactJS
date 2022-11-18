@@ -1,41 +1,15 @@
-import './assets/styles/App.css';
-import React from "react";
-import Expense from './components/Expense';
-import { getDate } from './utils/helper';
-
-const number = 100;
-
-const expenseData = [
-  {
-    id: Math.floor(Math.random() * number),
-    date: getDate("2022-01-12"),
-    title: `Item ${Math.floor(Math.random() * number)}`,
-    amount: Math.round(Math.random() * number) / number,
-  },
-  {
-    id: Math.floor(Math.random() * number),
-    date: getDate("2022-01-25"),
-    title: `Item ${Math.floor(Math.random() * number)}`,
-    amount: Math.round(Math.random() * number) / number,
-  },
-  {
-    id: Math.floor(Math.random() * number),
-    date: getDate("2022-02-09"),
-    title: `Item ${Math.floor(Math.random() * number)}`,
-    amount: Math.round(Math.random() * number) / number,
-  },
-  {
-    id: Math.floor(Math.random() * number),
-    date: getDate("2022-03-16"),
-    title: `Item ${Math.floor(Math.random() * number)}`,
-    amount: Math.round(Math.random() * number) / number,
-  }
-];
+import "./assets/styles/App.css";
+import Expenses from "./components/expenses/Expenses";
+import NewExpense from "./components/new_expense/NewExpense";
+import { expenseData } from "./data/data";
 
 const App = () => {
   return (
-    <Expense data={expenseData} />
+    <>
+      <NewExpense />
+      <Expenses data={expenseData} />
+    </>
   );
-}
+};
 
 export default App;
